@@ -1,7 +1,7 @@
 #naming + tags + conventions
 locals {
-  org         = "kaaratech"
-  project     = "devops"
+  org         = "org-placeholder"        # replace before real deployment
+  project     = "project-placeholder"    # replace before real deployment
   environment = var.environment
   region      = "eastus"
 
