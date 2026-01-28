@@ -1,0 +1,38 @@
+##Terraform:IaC tool
+
+1.You define Terraform files in .tf
+2.Terraform figures out what to create/delete/change.
+3.Terraform remembers infra using state.(terraform.tfstate)
+4.Terraform does not scan Azure blindly,it trust it state file.
+
+##Core Terraform Commands
+
+1. terraform init : Purpose- Prepare the folder
+   -> Download Providers(plugins)
+   -> Prepares BE.
+   -> Creates .terraform/
+   -> Creates .terraform.lock.hcl
+
+   Rule: New folder, BE/Provider change :-init
+
+2. terraform plan : Purpose- Preview
+   ->Shows what terraform will do.
+   ->Creates nothing,delete nothing.
+    Symbols:
+       + create
+       - delete
+       ~ change
+    Rule : Never create without reading plan.
+
+3. terraform apply : Purpose- Commit
+
+    ->Actually talks to Azure.
+    ->Create/Update/delete infra.
+    ->writes to state.
+
+    Rule: This is the most dangerous command.
+
+4. terraform destroy: Purpose- Clear Teardown
+   
+   ->deletes only whats in the state.
+   ->Never touches infra that is not owned by it's state file.
